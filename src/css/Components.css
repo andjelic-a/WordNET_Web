@@ -1,0 +1,47 @@
+.navbar {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-name {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+.logo-name img {
+    width: 70px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.navbar ul li {
+    position: relative;
+    list-style: none;
+    display: inline-block;
+    margin: 0 0 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: wheat;
+    text-transform: uppercase;
+}
+
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #EEACA9;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
