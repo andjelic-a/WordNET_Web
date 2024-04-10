@@ -1,13 +1,13 @@
 import "./App.css";
 import Header from "./components/Banner/Header";
-import Home from "./components/Home/Home";
+import Search from "./components/Search/Search";
 
 function App() {
   return (
     <>
       <div className="home">
         <Header />
-        <Home />
+        <Search />
       </div>
     </>
   )
