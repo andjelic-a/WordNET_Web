@@ -1,15 +1,28 @@
 import "./App.css";
-import Header from "./components/Banner/Header";
-import Search from "./components/Search/Search";
+// @ts-ignore
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import Home from './components/Home/Home';
+import About from './components/About/About';
+import Credits from "./components/Credits/Credits";
 
 function App() {
   return (
-    <>
-      <div className="home">
-        <Header />
-        <Search />
+    <Router>
+      <div className="app">
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route exact path='/about'>
+            <About />
+          </Route>
+          <Route exact path='/credits'>
+            <Credits />
+          </Route>
+        </Switch>
       </div>
-    </>
+    </Router>
   )
 }
 

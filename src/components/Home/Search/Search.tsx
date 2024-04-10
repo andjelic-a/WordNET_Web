@@ -1,4 +1,4 @@
-import '../../css/Components.css';
+import '../../../css/HomeComponents.css';
 import SearchBar from './SearchBar';
 
 function Search() {

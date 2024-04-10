@@ -1,4 +1,4 @@
-import '../../css/Components.css';
+import '../../../css/HomeComponents.css';
 
 function SearchBar() {
     return(
