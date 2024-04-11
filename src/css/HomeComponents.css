@@ -3,7 +3,7 @@
 .home {
     width: 100svw;
     height: 100svh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.85)), url("../img/Library.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.85)), url("../../public/img/Library.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -113,7 +113,7 @@ header {
     color: rgb(245, 222, 179, 0.5);
 }
 
-.search-bar button{
+.search-bar button {
     border: 0;
     border-radius: 50%;
     width: 60px;

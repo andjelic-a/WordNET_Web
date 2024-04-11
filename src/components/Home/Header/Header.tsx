@@ -8,28 +8,28 @@ function Header() {
         link: string;
     }
 
-        const listItems: navBarItem[] = [
+    const listItems: navBarItem[] = [
 
-            { name: 'Početna strana', link: '/' }, 
-            { name: 'O stranici', link: '/about' },
-            { name: 'Zasluge', link: '/credits' }
-        ];
+        { name: 'Početna strana', link: '/' },
+        { name: 'O stranici', link: '/about' },
+        { name: 'Zasluge', link: '/credits' }
+    ];
 
-        return (
-            <>
-                <header>
-                    <div className="navbar">
-                        <div className="logo-name">
-                            <img src="../../../../img/BookLogo.png" alt="Logo" />
-                            <p>WordNET</p>
-                        </div>
-                        <ul>
-                            {listItems.map((item) => (<li key={item.name}><Link to={item.link}>{item.name}</Link></li>))}
-                        </ul>
+    return (
+        <>
+            <header>
+                <div className="navbar">
+                    <div className="logo-name">
+                        <img src="../../../../img/BookLogo.png" alt="Logo" />
+                        <p>WordNET</p>
                     </div>
-                </header>
-            </>
-        )
-    }
+                    <ul>
+                        {listItems.map((item) => (<li key={item.name}><Link to={item.link}>{item.name}</Link></li>))}
+                    </ul>
+                </div>
+            </header>
+        </>
+    )
+}
 
 export default Header;

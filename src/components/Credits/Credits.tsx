@@ -1,9 +1,7 @@
-
-
 function Credits() {
-    return(
+    return (
         <>
-        <h1>Hello world2!</h1>
+            <h1>Hello world2!</h1>
         </>
     )
 }

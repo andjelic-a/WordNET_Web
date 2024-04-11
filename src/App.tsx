@@ -5,11 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Credits from './components/Credits/Credits';
-import { test } from './request_handler/ServerRequest';
 
 function App() {
-  test()
-
   return (
     <Router>
       <div className="app">
