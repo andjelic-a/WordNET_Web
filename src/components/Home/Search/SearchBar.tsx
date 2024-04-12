@@ -14,6 +14,7 @@ function SearchBar() {
         // If word is not empty or white spaces, search for similar words
         const similarWords = findSimilarWord(word.trim());
         console.log(similarWords);
+
     }
 
     return (
