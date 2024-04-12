@@ -8,12 +8,10 @@ function Home() {
   getWords();
 
   return (
-    <>
-      <div className="home">
-        <Header />
-        <Search />
-      </div>
-    </>
+    <div className="home">
+      <Header />
+      <Search />
+    </div>
   )
 }
 

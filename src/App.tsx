@@ -3,8 +3,8 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from './components/Home/Home';
+import Archive from './components/Archive/Archive';
 import About from './components/About/About';
-import Credits from './components/Credits/Credits';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
             <About />
           </Route>
           <Route exact path='/credits'>
-            <Credits />
+            <Archive />
           </Route>
         </Switch>
       </div>

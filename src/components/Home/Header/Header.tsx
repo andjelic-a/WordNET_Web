@@ -12,7 +12,7 @@ function Header() {
 
         { name: 'Početna strana', link: '/' },
         { name: 'O stranici', link: '/about' },
-        { name: 'Zasluge', link: '/credits' }
+        { name: 'Arhiva', link: '/credits' }
     ];
 
     return (

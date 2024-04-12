@@ -1,8 +1,10 @@
-function About() {
-    return (
-        <>
-            <h1>Hello world!</h1>
-        </>
+
+
+function About(){
+    return(
+        <div className="about">
+            
+        </div>
     )
 }
 
