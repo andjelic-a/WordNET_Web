@@ -11,3 +11,13 @@ export async function getWords() {
         console.error('Error fetching words', error);
     }
 }
+
+export function findSimilarWord(slice: string): string[] {
+    try {
+        let s = words.filter(word => word.name.toLowerCase().includes(slice.toLowerCase()));
+        return s.map(word => word.name);
+    } catch (error) {
+        console.error('Error finding similar words', error);
+        return [];
+    }
+}
