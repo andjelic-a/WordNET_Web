@@ -91,14 +91,16 @@ header {
 .search-bar {
     display: flex;
     position: relative;
+    justify-content: center;
     align-items: center;
     width: 100%;
     max-width: 600px;
+    height: 10svh;
     background: rgb(255, 255, 255, 0.2);
     border-radius: 60px;
     padding: 0.15em;
-    backdrop-filter: blur(2px) saturate(180%);
-    bottom: 10vh;
+    backdrop-filter: blur(3px) saturate(180%);
+    bottom: 10svh;
 }
 
 .search-bar input {
@@ -128,7 +130,18 @@ header {
 }
 
 .suggestedWords {
-    width: 300px;
-    height: 100px;
-    background-color: red;
+    top: 11svh;
+    padding-left: 0.5em;
+    border-radius: 0.7em;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 90%;
+    background: rgb(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px) saturate(180%);
+}
+
+.suggestedWords p{
+    color: wheat;
 }

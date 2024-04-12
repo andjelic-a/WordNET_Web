@@ -1,11 +1,20 @@
 import '../../../css/HomeComponents.css';
 
-function SuggestedWords(similarWords: string[]) {
+function SuggestedWords() {
 
 
     return(
         <div className="suggestedWords">
-            {similarWords.map((words) => (<p>{words}</p>))}
+            <p>dasdad</p>
+            <p>dsadasdad</p>
+            <p>dasdads</p>
+            <p>dasdads</p>
+            <p>dasdads</p>
+            <p>dasdads</p>
+            <p>dasdads</p>
+            <p>dasdads</p>
+            <p>dasdads</p>
+            <p>dasdads</p>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../css/HomeComponents.css';
 import { findSimilarWord } from '../../../request_handler/ServerRequest';
+import SuggestedWords from './SuggestedWords';
 
 function SearchBar() {
     const searchForWords = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -21,6 +22,7 @@ function SearchBar() {
         <form action='' className='search-bar'>
             <input type="text" onKeyUp={(e) => searchForWords(e)} placeholder='gore, kuća, neprijatelj...' />
             <button type='submit'><img src='../../../../img/search.png'></img></button>
+            <SuggestedWords />
         </form>
     )
 }
