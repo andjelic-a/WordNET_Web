@@ -12,10 +12,10 @@ export async function getWords() {
     }
 }
 
-export function findSimilarWord(slice: string): string[] {
+export function findSimilarWord(slice: string): WordDTO[] {
     try {
-        let s = words.filter(word => word.name.toLowerCase().includes(slice.toLowerCase()));
-        return s.map(word => word.name);
+        const s = words.filter(word => word.name.toLowerCase().includes(slice.toLowerCase()));
+        return s.map(word => word);
     } catch (error) {
         console.error('Error finding similar words', error);
         return [];
