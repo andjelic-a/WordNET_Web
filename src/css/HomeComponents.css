@@ -96,9 +96,9 @@ header {
     width: 100%;
     max-width: 600px;
     height: 65px;
-    background: rgb(255, 255, 255, 0.2);
     border-radius: 60px;
     padding: 0.15em;
+    background: rgb(255, 255, 255, 0.2);
     backdrop-filter: blur(3px) saturate(180%);
     bottom: 10svh;
 }
@@ -129,33 +129,43 @@ header {
     width: 25px;
 }
 
-.suggestedWords {
+.suggested-words-relative{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 90%;
+    bottom: 9svh;
+}
+
+.suggested-words {
     font-size: 1.1em;
-    top: 70px;
-    border-radius: 0.5rem;
     display: flex;
     position: absolute;
     flex-direction: column;
-    justify-content: flex-start;
-    width: 90%;
-    background-color: #977940;
+    width: 70%;
+    border-radius: 20px;
+    max-width: 550px;
+    background: rgb(255, 255, 255, 0.2);
+    backdrop-filter: blur(3px) saturate(180%);
 }
 
-.suggestedWords p {
+.suggested-words p {
     padding-left: 0.7em;
     color: wheat;
     cursor: pointer;
 }
 
-.suggestedWords p:first-child {
-    margin-top: 0.4em;
+.suggested-words p:first-child {
+    padding-top: 0.4em;
+    border-radius: 20px 20px 0 0;
 }
 
-.suggestedWords p:last-child {
-    margin-bottom: 0.4em;
+.suggested-words p:last-child {
+    padding-bottom: 0.4em;
+    border-radius: 0 0 20px 20px;
 }
 
-.suggestedWords p:hover {
+.suggested-words p:hover {
     color: rgb(255, 255, 255);
-    background-color: rgb(172, 137, 73, 1);
+    background-color: rgb(172, 137, 73, 0.5);
 }

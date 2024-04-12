@@ -46,13 +46,17 @@ function SearchBar() {
     }
 
     return (
-        <form action='' className='search-bar'>
-            <input type="text" className='input-SearchBar' onKeyUp={(e) => searchForWords(e)} placeholder='gore, kuća, neprijatelj...' />
-            <button type='submit'><img src='../../../../img/search.png'></img></button>
-            <div className="suggestedWords">
+        <>
+            <form action='' className='search-bar'>
+                <input type="text" className='input-SearchBar' onKeyUp={(e) => searchForWords(e)} placeholder='gore, kuća, neprijatelj...' />
+                <button type='submit'><img src='../../../../img/search.png'></img></button>
+            </form>
+            <div className='suggested-words-relative'>
+            <div className="suggested-words">
                 {words.map((word) => (<p data-id={word.wordid} key={word.wordid} onClick={(e) => wordSelected(e)}>{word.name}</p>))}
             </div>
-        </form>
+            </div>
+        </>
     )
 }
 
