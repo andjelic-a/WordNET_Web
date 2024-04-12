@@ -26,11 +26,25 @@ function SearchBar() {
     const wordSelected = (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
         // In future add here to open page with associated words to this word (based on id -> get id from dataset)
         console.log(e.currentTarget.dataset.key);
+
+        const selectedWordId: string | undefined = e.currentTarget.dataset.key;
+        if (selectedWordId) {
+            // Find the selected word from the words state
+            const selectedWord: WordDTO | undefined = words.find((word: WordDTO) => word.wordid.toString() === selectedWordId);
+
+            if (selectedWord) {
+                const searchBarInput: HTMLInputElement | null = document.querySelector('.input-SearchBar');
+                if (searchBarInput) {
+                    // Set the input value to selected word's name
+                    searchBarInput.value = selectedWord.name;
+                }
+            }
+        }
     }
 
     return (
         <form action='' className='search-bar'>
-            <input type="text" onKeyUp={(e) => searchForWords(e)} placeholder='gore, kuća, neprijatelj...' />
+            <input type="text" className='input-SearchBar' onKeyUp={(e) => searchForWords(e)} placeholder='gore, kuća, neprijatelj...' />
             <button type='submit'><img src='../../../../img/search.png'></img></button>
             <div className="suggestedWords">
                 {words.map((word) => (<p data-key={word.wordid} key={word.wordid} onClick={(e) => wordSelected(e)}>{word.name}</p>))}
