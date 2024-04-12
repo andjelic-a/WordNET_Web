@@ -49,7 +49,7 @@ function SearchBar() {
         <>
             <form action='' className='search-bar'>
                 <input type="text" className='input-SearchBar' onKeyUp={(e) => searchForWords(e)} placeholder='gore, kuća, neprijatelj...' />
-                <button type='submit'><img src='../../../../img/search.png'></img></button>
+                <button type='submit'><img src='../../../../img/search.png' alt='Search icon' draggable = "false" /></button>
             </form>
             <div className='suggested-words-relative'>
             <div className="suggested-words">

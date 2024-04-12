@@ -18,4 +18,5 @@
     box-sizing: border-box;
     font-family: 'Satoshi-Medium', sans-serif;
     color: wheat;
+    user-select: none;
 }
