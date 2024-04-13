@@ -150,7 +150,7 @@ header {
 }
 
 .suggested-words p {
-    padding-left: 0.7em;
+    padding: 0.2em 0 0.2em 0.7em;
     color: wheat;
     cursor: pointer;
 }

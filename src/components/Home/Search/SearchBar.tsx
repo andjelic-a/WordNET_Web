@@ -1,10 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../../../css/HomeComponents.css';
 import { findSimilarWord } from '../../../request_handler/ServerRequest';
 import { WordDTO } from '../../../request_handler/models';
+import { activityWordsContext, associatedWordsContext } from '../HomeContex';
 
 function SearchBar() {
     const [words, setWords] = useState<WordDTO[]>([]);
+    const { isWordsActive, setWordsActivity } = useContext(activityWordsContext);
+    const { associatedWords, setAssociatedWords } = useContext(associatedWordsContext);
+
+    const handleClick = () => {
+        // In case when there is no suggested word we alert user that there is no suggested word
+        words.length === 0 && alert('ne');
+
+        // In case when there is only one suggested word we get id from array based on index
+        if(words.length === 1){
+        }
+
+        const selectedWord: HTMLInputElement | null = document.querySelector('.input-SearchBar');
+        const isSuggestedWord: WordDTO | undefined = words.find((word) => word.name === selectedWord?.value);
+        console.log(isSuggestedWord?.wordid);
+    }
 
     const searchForWords = (e: React.KeyboardEvent<HTMLInputElement> | React.FocusEvent<HTMLInputElement, Element>) => {
         // Get current entered chars
@@ -47,14 +63,14 @@ function SearchBar() {
 
     return (
         <>
-            <form action='' className='search-bar'>
+            <div className='search-bar'>
                 <input type="text" className='input-SearchBar' onKeyUp={(e) => searchForWords(e)} placeholder='gore, kuća, neprijatelj...' />
-                <button type='submit'><img src='../../../../img/search.png' alt='Search icon' draggable = "false" /></button>
-            </form>
-            <div className='suggested-words-relative'>
-            <div className="suggested-words">
-                {words.map((word) => (<p data-id={word.wordid} key={word.wordid} onClick={(e) => wordSelected(e)}>{word.name}</p>))}
+                <button type='button'><img src='../../../../img/search.png' alt='Search icon' draggable="false" onClick={handleClick} /></button>
             </div>
+            <div className='suggested-words-relative'>
+                <div className="suggested-words">
+                    {words.map((word) => (<p data-id={word.wordid} key={word.wordid} onClick={(e) => wordSelected(e)}>{word.name}</p>))}
+                </div>
             </div>
         </>
     )

@@ -17,7 +17,7 @@ function App() {
           <Route exact path='/about'>
             <About />
           </Route>
-          <Route exact path='/credits'>
+          <Route exact path='/archive'>
             <Archive />
           </Route>
         </Switch>
