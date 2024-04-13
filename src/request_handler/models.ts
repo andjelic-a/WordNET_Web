@@ -8,5 +8,5 @@ export class AssociatedWord {
 export class WordDTO {
     wordid!: number;
     name!: string;
-    associatedwordid!: AssociatedWord[];
+    associatedwords!: AssociatedWord[];
 }

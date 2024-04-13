@@ -1,4 +1,4 @@
-import { WordDTO } from "./models";
+import { AssociatedWord, WordDTO } from "./models";
 
 export let words: WordDTO[] = [];
 
@@ -9,6 +9,17 @@ export function findSimilarWord(slice: string): WordDTO[] {
         return s.map(word => word);
     } catch (error) {
         console.error('Error finding similar words', error);
+        return [];
+    }
+}
+
+// Find and return associated words for specified word id
+export function findAssociatedWordsForWord(selectedWord: number): AssociatedWord[] {
+    try {
+        const s = words.filter(word => word.wordid === selectedWord);
+        return s[0].associatedwords;
+    } catch (error) {
+        console.error('Error finding associated words', error);
         return [];
     }
 }

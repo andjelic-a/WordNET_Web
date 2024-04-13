@@ -1,25 +1,36 @@
 import React, { useContext, useState } from 'react';
 import '../../../css/HomeComponents.css';
-import { findSimilarWord } from '../../../request_handler/ServerRequest';
+import { findAssociatedWordsForWord, findSimilarWord } from '../../../request_handler/ServerRequest';
 import { WordDTO } from '../../../request_handler/models';
-import { activityWordsContext, associatedWordsContext } from '../HomeContex';
+import { associatedWordsContext } from '../HomeContex';
 
 function SearchBar() {
     const [words, setWords] = useState<WordDTO[]>([]);
-    const { isWordsActive, setWordsActivity } = useContext(activityWordsContext);
-    const { associatedWords, setAssociatedWords } = useContext(associatedWordsContext);
+    const { setAssociatedWords } = useContext(associatedWordsContext);
 
     const handleClick = () => {
-        // In case when there is no suggested word we alert user that there is no suggested word
-        words.length === 0 && alert('ne');
-
-        // In case when there is only one suggested word we get id from array based on index
-        if(words.length === 1){
+        // If there are no suggested words we alert user there is no suggested words
+        if (words.length === 0) {
+            alert("There is no suggested words");
+            return;
         }
 
+        // If there is only one suggested word we take that words by using index
+        if (words.length === 1) {
+            setAssociatedWords(findAssociatedWordsForWord(words[0].wordid));
+            return;
+        }
+
+        // If there are more than one suggested word we take user input and try to find suggested word by name
         const selectedWord: HTMLInputElement | null = document.querySelector('.input-SearchBar');
-        const isSuggestedWord: WordDTO | undefined = words.find((word) => word.name === selectedWord?.value);
-        console.log(isSuggestedWord?.wordid);
+        const suggestedWord: WordDTO | undefined = words.find((word) => word.name === selectedWord?.value);
+        if (!suggestedWord) {
+            alert("Entered word doesn't exist");
+            return;
+        }
+
+        // When word is found we take id and get associated words and refresh WordsPage to show new data
+        setAssociatedWords(findAssociatedWordsForWord(words[0].wordid));
     }
 
     const searchForWords = (e: React.KeyboardEvent<HTMLInputElement> | React.FocusEvent<HTMLInputElement, Element>) => {
