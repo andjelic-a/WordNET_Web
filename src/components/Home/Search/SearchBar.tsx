@@ -29,8 +29,6 @@ function SearchBar() {
             return;
         }
 
-        console.log(suggestedWord);
-
         // When word is found we take id and get associated words and refresh WordsPage to show new data
         setAssociatedWords(findAssociatedWordsForWord(suggestedWord.wordid));
     }
