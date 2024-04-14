@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import '../../../css/HomeComponents.css';
 import { findAssociatedWordsForWord, findSimilarWord } from '../../../request_handler/ServerRequest';
-import { WordDTO } from '../../../request_handler/models';
+import { WordDTO } from '../../../types/Types';
 import { associatedWordsContext } from '../HomeContex';
 
 function SearchBar() {
@@ -29,8 +29,10 @@ function SearchBar() {
             return;
         }
 
+        console.log(suggestedWord);
+
         // When word is found we take id and get associated words and refresh WordsPage to show new data
-        setAssociatedWords(findAssociatedWordsForWord(words[0].wordid));
+        setAssociatedWords(findAssociatedWordsForWord(suggestedWord.wordid));
     }
 
     const searchForWords = (e: React.KeyboardEvent<HTMLInputElement> | React.FocusEvent<HTMLInputElement, Element>) => {

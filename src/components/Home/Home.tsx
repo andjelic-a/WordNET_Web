@@ -5,7 +5,7 @@ import { getWords } from '../../request_handler/ServerRequest';
 import Words from './Words/Words';
 import { activityWordsContext, associatedWordsContext } from './HomeContex';
 import { useState } from 'react';
-import { AssociatedWord } from '../../request_handler/models';
+import { AssociatedWord } from '../../types/Types';
 
 function Home() {
   // Calling server to get all words from database

@@ -1,4 +1,4 @@
-import { AssociatedWord, WordDTO } from "./models";
+import { AssociatedWord, WordDTO } from "./../types/Types";
 
 export let words: WordDTO[] = [];
 

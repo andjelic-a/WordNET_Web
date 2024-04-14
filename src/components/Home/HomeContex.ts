@@ -1,22 +1,12 @@
-import { createContext, Dispatch, SetStateAction } from "react";
-import { AssociatedWord} from "../../request_handler/models";
+import { createContext } from "react";
+import { ActivityWordsContextInterface, AssociatedWordsContextInterface } from "../../types/Types";
 
-type activityWordsContextType = {
-    isWordsActive: boolean;
-    setWordsActivity: Dispatch<SetStateAction<boolean>>;
-}
-
-type associatedWordsContextType = {
-    associatedWords: AssociatedWord[];
-    setAssociatedWords: Dispatch<SetStateAction<AssociatedWord[]>>;
-}
-
-export const activityWordsContext = createContext<activityWordsContextType>({
+export const activityWordsContext = createContext<ActivityWordsContextInterface>({
     isWordsActive: false,
-    setWordsActivity: () => {}
+    setWordsActivity: () => { }
 });
 
-export const associatedWordsContext = createContext<associatedWordsContextType>({
+export const associatedWordsContext = createContext<AssociatedWordsContextInterface>({
     associatedWords: [],
-    setAssociatedWords: () => {}
+    setAssociatedWords: () => { }
 });
