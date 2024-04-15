@@ -17,6 +17,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-image: linear-gradient(rgba(41, 13, 0, 0.8), rgba(53, 17, 0, 0.5));
+    user-select: none;
 }
 
 .search {
@@ -27,7 +28,8 @@ header {
     position: relative;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(rgba(53, 17, 0, 0.5), rgba(53, 17, 0, 0), rgba(0, 0, 0, 0))
+    background-image: linear-gradient(rgba(53, 17, 0, 0.5), rgba(53, 17, 0, 0), rgba(0, 0, 0, 0));
+    user-select: none;
 }
 
 /*Header(navigation bar)*/
@@ -129,7 +131,7 @@ header {
     width: 25px;
 }
 
-.suggested-words-relative{
+.suggested-words-relative {
     display: flex;
     position: relative;
     justify-content: center;
@@ -173,4 +175,23 @@ header {
 .suggested-words p:hover {
     color: rgb(255, 255, 255);
     background-color: rgb(172, 137, 73, 0.5);
+}
+
+.words {
+    height: 100svh;
+    background-color: #fff8ec;
+    color: #AC8949;
+    font-family: 'Satoshi-Regular', sans-serif;
+}
+
+.words-header {
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+
+.words-header h1 {
+    font-weight: 500;
 }

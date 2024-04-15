@@ -29,8 +29,6 @@ function SearchBar() {
             return;
         }
 
-        console.log(suggestedWord);
-
         // When word is found we take id and get associated words and refresh WordsPage to show new data
         setAssociatedWords(findAssociatedWordsForWord(suggestedWord.wordid));
     }
@@ -78,7 +76,7 @@ function SearchBar() {
         <>
             <div className='search-bar'>
                 <input type="text" className='input-SearchBar' onKeyUp={(e) => searchForWords(e)} placeholder='gore, kuća, neprijatelj...' />
-                <button type='button'><img src='../../../../img/search.png' alt='Search icon' draggable="false" onClick={handleClick} /></button>
+                <a href="#Words"><button type='button'><img src='../../../../img/search.png' alt='Search icon' draggable="false" onClick={handleClick} /></button></a>
             </div>
             <div className='suggested-words-relative'>
                 <div className="suggested-words">
