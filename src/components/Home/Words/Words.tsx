@@ -7,10 +7,9 @@ function Words() {
 
     const test = () => {
         if (associatedWords.length < 1) {
-            return (
-                <></>
-            );
+            return (<></>);
         }
+        
         return (
             <div id="Words" className="words">
                 <div className="words-header">

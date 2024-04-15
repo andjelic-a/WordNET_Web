@@ -4,24 +4,12 @@ export let words: WordDTO[] = [];
 
 // Searching for similar words
 export function findSimilarWord(slice: string): WordDTO[] {
-    try {
-        const s = words.filter(word => word.name.toLowerCase().includes(slice.toLowerCase()));
-        return s.map(word => word);
-    } catch (error) {
-        console.error('Error finding similar words', error);
-        return [];
-    }
+    return words.filter(word => word.name.toLowerCase().includes(slice.toLowerCase()));
 }
 
 // Find and return associated words for specified word id
 export function findAssociatedWordsForWord(selectedWord: number): AssociatedWord[] {
-    try {
-        const s = words.filter(word => word.wordid === selectedWord);
-        return s[0].associatedwords;
-    } catch (error) {
-        console.error('Error finding associated words', error);
-        return [];
-    }
+    return (words.filter(word => word.wordid === selectedWord))[0].associatedwords;
 }
 
 // Getting words with their associated words from server
