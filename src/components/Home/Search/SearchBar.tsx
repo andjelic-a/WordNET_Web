@@ -47,7 +47,7 @@ function SearchBar() {
         const similarWords = findSimilarWord(word);
 
         // Update found words list
-        setWords(similarWords);
+        setWords(similarWords.slice(0, 10));
     }
 
     const wordSelected = (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
