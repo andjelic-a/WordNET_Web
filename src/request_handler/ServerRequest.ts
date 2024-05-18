@@ -15,7 +15,7 @@ export function findAssociatedWordsForWord(selectedWord: number): AssociatedWord
 // Getting words with their associated words from server
 export async function getWords() {
     try {
-        const response = await fetch('http://93.86.88.116:5002/getWordsAndAssociatedWords');
+        const response = await fetch('http://93.86.13.5:5002/getWordsAndAssociatedWords');
         const data = await response.json();
         words = data as WordDTO[];
     } catch (error) {
