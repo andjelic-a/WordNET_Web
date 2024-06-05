@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 function Search() {
     return (
         <div className='search'>
-            <h1>Pretražite reči</h1>
+            <h1>Претражите речи</h1>
             <SearchBar />
         </div>
     )

@@ -47,7 +47,7 @@ function SearchBar() {
         const similarWords = findSimilarWord(word);
 
         // Update found words list
-        setWords(similarWords.slice(0, 10));
+        setWords(similarWords.slice(0, 5));
     }
 
     const wordSelected = (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
@@ -75,7 +75,7 @@ function SearchBar() {
     return (
         <>
             <div className='search-bar'>
-                <input type="text" className='input-SearchBar' onKeyUp={(e) => searchForWords(e)} placeholder='gore, kuća, neprijatelj...' />
+                <input type="text" className='input-SearchBar' onKeyUp={(e) => searchForWords(e)} placeholder='горе, кућа, непријатељ...' />
                 <a href="#Words"><button type='button'><img src='../../../../img/search.png' alt='Search icon' draggable="false" onClick={handleClick} /></button></a>
             </div>
             <div className='suggested-words-relative'>

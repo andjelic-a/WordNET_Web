@@ -10,9 +10,8 @@ function Header() {
 
     const listItems: navBarItem[] = [
 
-        { name: 'Početna strana', link: '/' },
-        { name: 'O stranici', link: '/about' },
-        { name: 'Arhiva', link: '/archive' }
+        { name: 'Почетна страна', link: '/' },
+        { name: 'Архива', link: '/archive' }
     ];
 
     return (

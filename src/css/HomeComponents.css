@@ -106,6 +106,7 @@ header {
 }
 
 .search-bar input {
+    color: wheat;
     background: transparent;
     flex: 1;
     border: 0;
