@@ -45,12 +45,12 @@ header {
 .logo-name {
     display: flex;
     align-items: center;
-    font-size: 1.25rem;
+    font-size: 2.5rem;
 }
 
 .logo-name img {
-    width: 70px;
-    height: 50px;
+    width: 7rem;
+    height: 5rem;
     cursor: pointer;
 }
 
@@ -58,7 +58,8 @@ header {
     position: relative;
     list-style: none;
     display: inline-block;
-    margin: 0 0 0 15px;
+    margin: 0 0 0 3rem;
+    font-size: 2rem;
 }
 
 .navbar ul li a {
@@ -69,12 +70,12 @@ header {
 
 .navbar ul li::after {
     content: '';
-    height: 3px;
+    height: 0.3rem;
     width: 0;
     background: #EEACA9;
     position: absolute;
     left: 0;
-    bottom: -5px;
+    bottom: -0.5rem;
     transition: 0.5s;
 }
 
@@ -86,7 +87,7 @@ header {
 
 .search h1 {
     position: relative;
-    font-size: 3rem;
+    font-size: 4.5rem;
     bottom: 10vh;
 }
 
@@ -96,10 +97,10 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 600px;
-    height: 65px;
-    border-radius: 60px;
-    padding: 0.15em;
+    max-width: 60rem;
+    height: 6.5rem;
+    border-radius: 6rem;
+    padding: 0.25rem;
     background: rgb(255, 255, 255, 0.2);
     backdrop-filter: blur(3px) saturate(180%);
     bottom: 10svh;
@@ -111,8 +112,8 @@ header {
     flex: 1;
     border: 0;
     outline: none;
-    font-size: 1.2em;
-    padding: 0 1.5em;
+    font-size: 2rem;
+    padding: 0 1.8rem;
 }
 
 ::placeholder {
@@ -122,14 +123,18 @@ header {
 .search-bar button {
     border: 0;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 6rem;
+    height: 6rem;
     background: #977940;
     cursor: pointer;
 }
 
+.search-bar button:hover {
+    background: #9d8457;
+}
+
 .search-bar button img {
-    width: 25px;
+    width: 2.5rem;
 }
 
 .suggested-words-relative {
@@ -141,13 +146,13 @@ header {
 }
 
 .suggested-words {
-    font-size: 1.1em;
+    font-size: 2em;
     display: flex;
     position: absolute;
     flex-direction: column;
     width: 70%;
-    border-radius: 20px;
-    max-width: 550px;
+    border-radius: 2rem;
+    max-width: 55rem;
     background: rgb(255, 255, 255, 0.2);
     backdrop-filter: blur(3px) saturate(180%);
 }
@@ -160,39 +165,20 @@ header {
 
 .suggested-words p:first-child {
     padding-top: 0.4em;
-    border-radius: 20px 20px 0 0;
+    border-radius: 2rem 2rem 0 0;
 }
 
 .suggested-words p:last-child {
     padding-bottom: 0.4em;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 2rem 2rem;
 }
 
 .suggested-words p:only-child {
     padding: 0.4em 0 0.4em 0.7em;
-    border-radius: 20px;
+    border-radius: 2rem;
 }
 
 .suggested-words p:hover {
     color: rgb(255, 255, 255);
     background-color: rgb(172, 137, 73, 0.5);
-}
-
-.words {
-    height: 100svh;
-    background-color: #fff8ec;
-    color: #AC8949;
-    font-family: 'Satoshi-Regular', sans-serif;
-}
-
-.words-header {
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10%;
-}
-
-.words-header h1 {
-    font-weight: 500;
 }

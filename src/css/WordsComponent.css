@@ -1,0 +1,81 @@
+.words-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100svh;
+    background-color: #fff8ec;
+    color: #AC8949;
+    font-family: 'Satoshi-Regular', sans-serif;
+}
+
+.words-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 35rem;
+    height: 40rem;
+    border-radius: 0.5rem;
+    max-width: 55rem;
+    background: red;
+    backdrop-filter: blur(3px) saturate(180%);
+    font-size: 2rem;
+}
+
+.words-header {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 5rem;
+    border-radius: 5rem;
+    background-color: blue;
+    font-size: 1.5rem;
+}
+
+.magnifying-glass-icon {
+    font-size: 3rem;
+    position: absolute;
+    right: 4rem;
+}
+
+.associated-word-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+}
+
+.associated-word {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    margin: 0.2rem;
+}
+
+.associated-word p {
+    display: flex;
+    justify-content: center;
+    background-color: green;
+    border-radius: 0.5rem;
+    height: 1.5em;
+    width: 100%;
+}
+
+.associated-word-circle {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: purple;
+    width: 1.5em;
+    height: 1.5em;
+    transform: translateX(-1rem);
+}
