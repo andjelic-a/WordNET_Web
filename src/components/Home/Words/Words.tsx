@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { words } from "../../../request_handler/ServerRequest";
 import { associatedWordsContext } from "../HomeContex";
 import "../../../css/WordsComponent.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function Words() {
   const { associatedWords } = useContext(associatedWordsContext);
@@ -26,7 +26,12 @@ function Words() {
           </div>
           <div className="associated-word-container">
             {associatedWords.map((word) => (
-              <div className="associated-word"><div className="associated-word-circle">{associatedWordCounter++}</div><p key={word.associatedwordid}>{word.name}</p></div>
+              <div className="associated-word">
+                <div className="associated-word-circle">
+                  {associatedWordCounter++}
+                </div>
+                <p key={word.associatedwordid}>{word.name}</p>
+              </div>
             ))}
           </div>
         </div>
