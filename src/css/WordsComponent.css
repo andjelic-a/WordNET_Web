@@ -4,7 +4,9 @@
     align-items: center;
     width: 100%;
     height: 100svh;
-    background-color: #fff8ec;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.4)), url("../../public/img/LibraryLowerHalf.png");
+    background-size: cover;
+    background-position: center;
     color: black;
     font-family: 'Satoshi-Regular', sans-serif;
 }
@@ -32,6 +34,7 @@
     border-radius: 1rem;
     background-color: #C3B195;
     font-size: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .associated-word-container {
