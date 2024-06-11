@@ -1,0 +1,82 @@
+.words-page {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100svh;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.4)), url("../../public/img/LibraryLowerHalf.png");
+    background-size: cover;
+    background-position: center;
+    color: black;
+    font-family: 'Satoshi-Regular', sans-serif;
+}
+
+.words-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 35rem;
+    height: 40rem;
+    border-radius: 0.5rem;
+    max-width: 55rem;
+    font-size: 2rem;
+}
+
+.words-header {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 6rem;
+    border-radius: 1rem;
+    background-color: #C3B195;
+    font-size: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.associated-word-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    cursor: pointer;
+}
+
+.associated-word {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    margin: 0.2rem;
+}
+
+.associated-word p {
+    display: flex;
+    justify-content: center;
+    background-color: #ECD7B5;
+    border-radius: 0.5rem;
+    height: 1.5em;
+    width: 100%;
+}
+
+.associated-word-circle {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: #ECD7B5;
+    width: 1.5em;
+    height: 1.5em;
+    transform: translateX(-1rem);
+}
+
+.words-about img{
+    width: 35rem;
+    height: 40rem;
+}
