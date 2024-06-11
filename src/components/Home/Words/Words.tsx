@@ -24,9 +24,9 @@ function Words() {
           </div>
           <div className="associated-word-container">
             {associatedWords.map((word) => (
-              <div className="associated-word">
+              <div key={associatedWordCounter++} className="associated-word">
                 <div className="associated-word-circle">
-                  {associatedWordCounter++}
+                  {word.count}
                 </div>
                 <p key={word.associatedwordid}>{word.name}</p>
               </div>
