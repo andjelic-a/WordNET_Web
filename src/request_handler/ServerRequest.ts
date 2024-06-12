@@ -15,8 +15,13 @@ export function findAssociatedWordsForWord(selectedWord: number): AssociatedWord
 // Getting words with their associated words from server
 export async function getWords() {
     try {
+        console.log("Sending Request...");
         const response = await fetch('http://apzserver.ddns.net:5002/getWordsAndAssociatedWords');
+
+        console.log("Reading Json...");
         const data = await response.json();
+
+        console.log("Loading Words...");
         words = data as WordDTO[];
     } catch (error) {
         console.error('Error:', error);

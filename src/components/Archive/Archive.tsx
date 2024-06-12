@@ -3,8 +3,6 @@ import { words } from "../../request_handler/ServerRequest.ts";
 import Header from "../Home/Header/Header.tsx";
 
 function Archive() {
-  console.log(words)
-
   return (
     <div className="archive-component">
       <div className="archive-header">
