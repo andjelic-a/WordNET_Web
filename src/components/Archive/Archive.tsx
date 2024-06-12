@@ -19,7 +19,7 @@ function Archive() {
               </div>
 
               <div className="associated-word-container">
-                {w.associatedwords.map((a) => (
+                {w.associatedwords.sort((a, b) => b.count - a.count).map((a) => (
                   <div className="associated-word">
                     <div className="associated-word-circle">{a.count}</div>
                     <p>{a.name}</p>

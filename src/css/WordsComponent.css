@@ -34,16 +34,21 @@
     border-radius: 1rem;
     background-color: #977940;
     font-size: 1.5rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
+    color: wheat;
 }
 
 .associated-word-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     width: 70%;
+    height: 24rem;
     cursor: pointer;
+    overflow-y: auto;
+    scrollbar-color: wheat #977940;
+    color: #4f3f21;
 }
 
 .associated-word {
@@ -52,6 +57,7 @@
     align-items: center;
     width: 80%;
     margin: 0.2rem;
+    position: relative;
 }
 
 .associated-word p {
@@ -64,8 +70,8 @@
 }
 
 .associated-word-circle {
-    display: flex;
     position: absolute;
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
