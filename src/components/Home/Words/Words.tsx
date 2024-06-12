@@ -23,7 +23,7 @@ function Words() {
             </h1>
           </div>
           <div className="associated-word-container">
-            {associatedWords.map((word) => (
+            {associatedWords.sort((a, b) => b.count - a.count).map((word) => (
               <div key={associatedWordCounter++} className="associated-word">
                 <div className="associated-word-circle">
                   {word.count}
