@@ -15,14 +15,14 @@ function Archive() {
             <div className="words-container">
 
               <div className="words-header">
-                <h1>{w.name}</h1>
+                <h1>{w.Name}</h1>
               </div>
 
               <div className="associated-word-container">
-                {w.associatedwords.sort((a, b) => b.count - a.count).map((a) => (
+                {w.AssociatedWords.sort((a, b) => b.Count - a.Count).map((a) => (
                   <div className="associated-word">
-                    <div className="associated-word-circle">{a.count}</div>
-                    <p>{a.name}</p>
+                    <div className="associated-word-circle">{a.Count}</div>
+                    <p>{a.Name}</p>
                   </div>
                 ))}
               </div>

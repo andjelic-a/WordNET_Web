@@ -1,28 +1,20 @@
-import { AssociatedWord, WordDTO } from "./../types/Types";
+import { AssociatedWord, Word } from "./../types/Types";
 
-export let words: WordDTO[] = [];
+export let words: Word[] = [];
 
-// Searching for similar words
-export function findSimilarWord(slice: string): WordDTO[] {
-    return words.filter(word => word.name.toLowerCase().includes(slice.toLowerCase()));
+export function findSimilarWord(slice: string): Word[] {
+    return words.filter(word => word.Name.toLowerCase().includes(slice.toLowerCase()));
 }
 
-// Find and return associated words for specified word id
 export function findAssociatedWordsForWord(selectedWord: number): AssociatedWord[] {
-    return (words.filter(word => word.wordid === selectedWord))[0].associatedwords;
+    return (words.filter(word => word.Id === selectedWord))[0].AssociatedWords;
 }
 
-// Getting words with their associated words from server
 export async function getWords() {
     try {
-        console.log("Sending Request...");
-        const response = await fetch('http://apzserver.ddns.net:5002/getWordsAndAssociatedWords');
-
-        console.log("Reading Json...");
+        const response = await fetch('http://apzserver.ddns.net:5002/api/Words/GetWords');
         const data = await response.json();
-
-        console.log("Loading Words...");
-        words = data as WordDTO[];
+        words = data as Word[];
     } catch (error) {
         console.error('Error:', error);
     }
