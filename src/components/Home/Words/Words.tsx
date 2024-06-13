@@ -2,12 +2,13 @@ import { useContext, useMemo } from "react";
 import { words } from "../../../request_handler/ServerRequest";
 import { associatedWordsContext } from "../HomeContex";
 import "../../../css/WordsComponent.css";
+import { Statistics } from "../../../types/Types";
 
 function Words() {
   const { associatedWords } = useContext(associatedWordsContext);
 
-  const wordClick = (e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
-    console.log(JSON.parse(e.currentTarget.dataset.statistics!));
+  const wordClick = (statistics: Statistics) => {
+    console.log(statistics);
   };
 
   const sortedAssociatedWords = useMemo(() => {
@@ -33,8 +34,7 @@ function Words() {
                 {word.Count}
               </div>
               <p
-                data-statistics={JSON.stringify(word.Statistics)}
-                onClick={wordClick}
+                onClick={(_) => wordClick(word.Statistics)}
               >
                 {word.Name}
               </p>
