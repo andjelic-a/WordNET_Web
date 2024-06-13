@@ -104,12 +104,11 @@ function SearchBar() {
           placeholder="горе, кућа, непријатељ..."
         />
         <a href="#Words">
-          <button type="button">
+          <button onClick={handleClick} type="button">
             <img
               src="../../../../img/search.png"
               alt="Search icon"
               draggable="false"
-              onClick={handleClick}
             />
           </button>
         </a>
