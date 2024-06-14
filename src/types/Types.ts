@@ -9,6 +9,11 @@ export interface AssociatedWordsContextInterface {
     setAssociatedWords: Dispatch<SetStateAction<AssociatedWord[]>>
 }
 
+export interface WordContextInterface {
+    word: string
+    setWord: Dispatch<SetStateAction<string>>
+}
+
 
 // ====================================================================
 // Version 1.0 DTOs (Old)
@@ -32,23 +37,23 @@ export class WordDTO {
 // Version 2.0 DTOs
 // ====================================================================
 
-export class Ages {
+export class Questionee {
     Id!: number;
+
     IsMan!: boolean;
     Age!: number;
 }
 
 export class AssociatedWord {
-    Id!: number;
-    Name!: string;
-    Count!: number;
+    id!: number;
+    name!: string;
+    count!: number;
 
-    Ages!: Ages[];
-    WordId!: number;
+    questioneeDTOs!: Questionee[];
 }
 
 export class Word {
-    Id!: number;
-    Name!: string;
-    AssociatedWords!: AssociatedWord[];
+    id!: number;
+    name!: string;
+    associatedWordDTOs!: AssociatedWord[];
 }

@@ -5,15 +5,14 @@ import {
   findSimilarWord,
 } from "../../../request_handler/ServerRequest";
 import { Word } from "../../../types/Types";
-import { associatedWordsContext } from "../HomeContex";
+import { associatedWordsContext, wordContext } from "../HomeContex";
 
 function SearchBar() {
   const [words, setWords] = useState<Word[]>([]);
   const { setAssociatedWords } = useContext(associatedWordsContext);
+  const { setWord } = useContext(wordContext);
 
   const handleClick = () => {
-    console.log("Clicked");
-
     // If there are no suggested words we alert user there is no suggested words
     if (words.length === 0) {
       return;
@@ -21,7 +20,8 @@ function SearchBar() {
 
     // If there is only one suggested word we take that words by using index
     if (words.length === 1) {
-      setAssociatedWords(findAssociatedWordsForWord(words[0].Id));
+      setAssociatedWords(findAssociatedWordsForWord(words[0].id));
+      setWord(words[0].name);
       return;
     }
 
@@ -30,7 +30,7 @@ function SearchBar() {
       document.querySelector(".input-SearchBar");
 
     const suggestedWord: Word | undefined = words.find(
-      (word) => word.Name === selectedWord?.value
+      (word) => word.name === selectedWord?.value
     );
 
     // If word doesn't exist we alert user
@@ -40,7 +40,8 @@ function SearchBar() {
     }
 
     // When word is found we take id and get associated words and refresh WordsPage to show new data
-    setAssociatedWords(findAssociatedWordsForWord(suggestedWord.Id));
+    setAssociatedWords(findAssociatedWordsForWord(suggestedWord.id));
+    setWord(suggestedWord.name);
   };
 
   const searchForWords = (
@@ -74,7 +75,7 @@ function SearchBar() {
 
     // Find the selected word from the words state (based on id)
     const selectedWord: Word | undefined = words.find(
-      (word: Word) => word.Id === selectedWordId
+      (word: Word) => word.id === selectedWordId
     );
     if (!selectedWord) {
       console.error("Cant find selected word");
@@ -90,7 +91,7 @@ function SearchBar() {
     }
 
     // Set input of search bar to word name
-    searchBarInput.value = selectedWord.Name;
+    searchBarInput.value = selectedWord.name;
   };
 
   return (
@@ -116,11 +117,11 @@ function SearchBar() {
         <div className="suggested-words">
           {words.map((word) => (
             <p
-              data-id={word.Id}
-              key={word.Id}
+              data-id={word.id}
+              key={word.id}
               onClick={(e) => wordSelected(e)}
             >
-              {word.Name}
+              {word.name}
             </p>
           ))}
         </div>

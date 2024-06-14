@@ -11,18 +11,18 @@ function Archive() {
 
       <div className="grid-container">
         {words.map((w) => (
-          <div key={w.Id} className="grid-item">
+          <div key={w.id} className="grid-item">
             <div className="words-container">
 
               <div className="words-header">
-                <h1>{w.Name}</h1>
+                <h1>{w.name}</h1>
               </div>
 
               <div className="associated-word-container">
-                {w.AssociatedWords.sort((a, b) => b.Count - a.Count).map((a) => (
-                  <div key={a.Id} className="associated-word">
-                    <div className="associated-word-circle">{a.Count}</div>
-                    <p>{a.Name}</p>
+                {w.associatedWordDTOs.sort((a, b) => b.count - a.count).map((a) => (
+                  <div key={a.id} className="associated-word">
+                    <div className="associated-word-circle">{a.count}</div>
+                    <p>{a.name}</p>
                   </div>
                 ))}
               </div>
