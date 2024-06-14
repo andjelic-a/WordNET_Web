@@ -16,7 +16,6 @@ function SearchBar() {
 
     // If there are no suggested words we alert user there is no suggested words
     if (words.length === 0) {
-      alert("There is no suggested words");
       return;
     }
 

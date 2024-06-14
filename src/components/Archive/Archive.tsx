@@ -11,7 +11,7 @@ function Archive() {
 
       <div className="grid-container">
         {words.map((w) => (
-          <div className="grid-item">
+          <div key={w.Id} className="grid-item">
             <div className="words-container">
 
               <div className="words-header">
@@ -20,7 +20,7 @@ function Archive() {
 
               <div className="associated-word-container">
                 {w.AssociatedWords.sort((a, b) => b.Count - a.Count).map((a) => (
-                  <div className="associated-word">
+                  <div key={a.Id} className="associated-word">
                     <div className="associated-word-circle">{a.Count}</div>
                     <p>{a.Name}</p>
                   </div>

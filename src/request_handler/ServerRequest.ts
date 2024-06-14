@@ -12,7 +12,7 @@ export function findAssociatedWordsForWord(selectedWord: number): AssociatedWord
 
 export async function getWords() {
     try {
-        const response = await fetch('http://apzserver.ddns.net:5002/api/Words/GetWords');
+        const response = await fetch('http://apzserver.ddns.net:5002/api/Words/GetWordsFull');
         const data = await response.json();
         words = data as Word[];
     } catch (error) {

@@ -2,12 +2,12 @@ import { useContext, useMemo } from "react";
 import { words } from "../../../request_handler/ServerRequest";
 import { associatedWordsContext } from "../HomeContex";
 import "../../../css/WordsComponent.css";
-import { Statistics } from "../../../types/Types";
+import { Ages } from "../../../types/Types";
 
 function Words() {
   const { associatedWords } = useContext(associatedWordsContext);
 
-  const wordClick = (statistics: Statistics) => {
+  const wordClick = (statistics: Ages[]) => {
     console.log(statistics);
   };
 
@@ -34,7 +34,7 @@ function Words() {
                 {word.Count}
               </div>
               <p
-                onClick={(_) => wordClick(word.Statistics)}
+                onClick={(_) => wordClick(word.Ages)}
               >
                 {word.Name}
               </p>

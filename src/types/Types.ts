@@ -32,16 +32,10 @@ export class WordDTO {
 // Version 2.0 DTOs
 // ====================================================================
 
-export class Statistics {
+export class Ages {
     Id!: number;
-
-    ManCount!: number;
-    ManAverageAge!: number;
-
-    WomanCount!: number;
-    WomanAverageAge!: number;
-
-    AssociatedWordId!: number;
+    IsMan!: boolean;
+    Age!: number;
 }
 
 export class AssociatedWord {
@@ -49,9 +43,7 @@ export class AssociatedWord {
     Name!: string;
     Count!: number;
 
-    StatisticsId!: number;
-    Statistics!: Statistics;
-
+    Ages!: Ages[];
     WordId!: number;
 }
 
