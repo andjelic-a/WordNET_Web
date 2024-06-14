@@ -38,10 +38,10 @@ export class WordDTO {
 // ====================================================================
 
 export class Questionee {
-    Id!: number;
+    id!: number;
 
-    IsMan!: boolean;
-    Age!: number;
+    isMan!: boolean;
+    age!: number;
 }
 
 export class AssociatedWord {
