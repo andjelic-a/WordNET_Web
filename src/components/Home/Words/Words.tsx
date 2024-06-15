@@ -1,5 +1,4 @@
-import { useContext, useMemo } from "react";
-//import { words } from "../../../request_handler/ServerRequest";
+import { useContext, useMemo, useState, useEffect, useRef } from "react";
 import { associatedWordsContext, wordContext } from "../HomeContex";
 import "../../../css/WordsComponent.css";
 import { Questionee } from "../../../types/Types";
@@ -7,10 +6,26 @@ import { Questionee } from "../../../types/Types";
 function Words() {
   const { associatedWords } = useContext(associatedWordsContext);
   const { word } = useContext(wordContext);
+  const [activeWord, setActiveWord] = useState<number | null>(null);
+  const wordRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const wordClick = (statistics: Questionee[]) => {
+  const wordClick = (statistics: Questionee[], index: number) => {
+    setActiveWord(index);
     console.log(statistics);
   };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (wordRefs.current.every((ref) => ref && !ref.contains(event.target as Node))) {
+      setActiveWord(null);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const sortedAssociatedWords = useMemo(() => {
     return associatedWords.sort((a, b) => b.count - a.count);
@@ -30,14 +45,14 @@ function Words() {
           <h1>{wordName}</h1>
         </div>
         <div className="associated-word-container">
-          {sortedAssociatedWords.map((word) => (
-            <div key={word.id} className="associated-word">
-              <div className="associated-word-circle">
-                {word.count}
-              </div>
-              <p
-                onClick={(_) => wordClick(word.questioneeDTOs)}
-              >
+          {sortedAssociatedWords.map((word, index) => (
+            <div
+              key={word.id}
+              className={`associated-word ${activeWord === index ? "active" : ""}`}
+              ref={(el) => (wordRefs.current[index] = el)}
+            >
+              <div className="associated-word-circle">{word.count}</div>
+              <p onClick={() => wordClick(word.questioneeDTOs, index)}>
                 {word.name}
               </p>
             </div>
