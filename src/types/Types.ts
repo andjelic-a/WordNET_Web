@@ -4,6 +4,10 @@ import { Dispatch, SetStateAction } from "react"
 // Context Items
 // ====================================================================
 
+export interface WordsContextInterface {
+    words: Word[]
+}
+
 export interface AssociatedWordsContextInterface {
     associatedWords: AssociatedWord[]
     setAssociatedWords: Dispatch<SetStateAction<AssociatedWord[]>>

@@ -32,11 +32,11 @@ function Words() {
 
     console.log(statistics);
 
-    const manPerc = statistics.filter(q => q.isMan == true).length / statistics.length;
-    const womanPerc = statistics.filter(q => q.isMan == false).length / statistics.length;
+    const manPerc = parseFloat(((statistics.filter(q => q.isMan == true).length / statistics.length) * 100).toFixed(2));
+    const womanPerc = 100 - manPerc;
 
-    const young = statistics.filter(q => q.age > 0 && q.age < 18).length;
-    const middle = statistics.filter(q => q.age > 18 && q.age < 25).length;
+    const young = statistics.filter(q => q.age > 0 && q.age <= 18).length;
+    const middle = statistics.filter(q => q.age > 18 && q.age <= 25).length;
     const old = statistics.filter(q => q.age > 25).length;
 
     setStatistics({
@@ -51,13 +51,13 @@ function Words() {
     });
 
     console.log("Percentage: ");
-    console.log(`Man => ${(manPerc * 100).toFixed(2)}%`);
-    console.log(`Woman => ${(womanPerc * 100).toFixed(2)}%`);
+    console.log(`Man => ${manPerc}%`);
+    console.log(`Woman => ${womanPerc}%`);
 
     console.log("");
     console.log("Age Group:");
-    console.log(`0 - 18 => ${statistics.filter(q => q.age > 0 && q.age < 18).length}`);
-    console.log(`18 - 25 => ${statistics.filter(q => q.age > 18 && q.age < 25).length}`);
+    console.log(`0 - 18 => ${statistics.filter(q => q.age > 0 && q.age <= 18).length}`);
+    console.log(`18 - 25 => ${statistics.filter(q => q.age > 18 && q.age <= 25).length}`);
     console.log(`25 - ♾️ => ${statistics.filter(q => q.age > 25).length}`);
   };
 
@@ -76,10 +76,6 @@ function Words() {
     };
   }, []);
 
-  const sortedAssociatedWords = useMemo(() => {
-    return associatedWords.sort((a, b) => b.count - a.count);
-  }, [associatedWords]);
-
   if (associatedWords.length < 1) {
     return null;
   }
@@ -94,7 +90,7 @@ function Words() {
             <h1>{wordName}</h1>
           </div>
           <div className="associated-word-container">
-            {sortedAssociatedWords.map((word, index) => (
+            {associatedWords.sort((a, b) => b.count - a.count).map((word, index) => (
               <div
                 key={word.id}
                 className={`associated-word ${activeWord === index ? "active" : ""}`}
@@ -117,7 +113,7 @@ function Words() {
                   { color: 'blue', value: statistics.gender.manPerc, label: 'Man' },
                   { color: 'pink', value: statistics.gender.womanPerc, label: 'Woman' }
                 ],
-                arcLabel: (item) => `${item.value * 100}%`,
+                arcLabel: (item) => `${item.value}%`,
                 arcLabelMinAngle: 0,
                 highlightScope: { faded: 'global', highlighted: 'item' },
                 faded: { innerRadius: 10, additionalRadius: -10, color: 'gray' },

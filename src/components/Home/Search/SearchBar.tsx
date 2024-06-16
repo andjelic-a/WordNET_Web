@@ -5,23 +5,25 @@ import {
   findSimilarWord,
 } from "../../../request_handler/ServerRequest";
 import { Word } from "../../../types/Types";
-import { associatedWordsContext, wordContext } from "../HomeContex";
+import { associatedWordsContext, wordContext, wordsContext } from "../HomeContex";
 
 function SearchBar() {
-  const [words, setWords] = useState<Word[]>([]);
+  const [suggestedWords, setSuggestedWords] = useState<Word[]>([]);
+
+  const { words } = useContext(wordsContext);
   const { setAssociatedWords } = useContext(associatedWordsContext);
   const { setWord } = useContext(wordContext);
 
   const handleClick = () => {
     // If there are no suggested words we alert user there is no suggested words
-    if (words.length === 0) {
+    if (suggestedWords.length === 0) {
       return;
     }
 
     // If there is only one suggested word we take that words by using index
-    if (words.length === 1) {
-      setAssociatedWords(findAssociatedWordsForWord(words[0].id));
-      setWord(words[0].name);
+    if (suggestedWords.length === 1) {
+      setAssociatedWords(findAssociatedWordsForWord(suggestedWords[0].id, words));
+      setWord(suggestedWords[0].name);
       return;
     }
 
@@ -29,7 +31,7 @@ function SearchBar() {
     const selectedWord: HTMLInputElement | null =
       document.querySelector(".input-SearchBar");
 
-    const suggestedWord: Word | undefined = words.find(
+    const suggestedWord: Word | undefined = suggestedWords.find(
       (word) => word.name === selectedWord?.value
     );
 
@@ -40,7 +42,7 @@ function SearchBar() {
     }
 
     // When word is found we take id and get associated words and refresh WordsPage to show new data
-    setAssociatedWords(findAssociatedWordsForWord(suggestedWord.id));
+    setAssociatedWords(findAssociatedWordsForWord(suggestedWord.id, words));
     setWord(suggestedWord.name);
   };
 
@@ -54,15 +56,15 @@ function SearchBar() {
 
     // If word is empty, set words to empty array
     if (word.trim() === "") {
-      setWords([]);
+      setSuggestedWords([]);
       return;
     }
 
     // If word is not empty or white spaces, search for similar words
-    const similarWords = findSimilarWord(word);
+    const similarWords = findSimilarWord(word, words);
 
     // Update found words list
-    setWords(similarWords.slice(0, 5));
+    setSuggestedWords(similarWords.slice(0, 5));
   };
 
   const wordSelected = (
@@ -74,7 +76,7 @@ function SearchBar() {
     );
 
     // Find the selected word from the words state (based on id)
-    const selectedWord: Word | undefined = words.find(
+    const selectedWord: Word | undefined = suggestedWords.find(
       (word: Word) => word.id === selectedWordId
     );
     if (!selectedWord) {
@@ -115,7 +117,7 @@ function SearchBar() {
       </div>
       <div className="suggested-words-relative">
         <div className="suggested-words">
-          {words.map((word) => (
+          {suggestedWords.map((word) => (
             <p
               data-id={word.id}
               key={word.id}
