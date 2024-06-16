@@ -39,6 +39,7 @@ function Archive() {
                   <div className="words-container">
 
                     <div className="words-header">
+                      {/*@ts-ignore*/}
                       <h1>{w.name}</h1>
                     </div>
 
