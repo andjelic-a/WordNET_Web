@@ -35,11 +35,11 @@ function Archive() {
           {(words: Word[]) => (
             <div className="grid-container">
               {words.map((w) => (
-                <div key={w.id} className="grid-item">
+                <div key={w.Id} className="grid-item">
                   <div className="words-container">
 
                     <div className="words-header">
-                      <h1>{w.name}</h1>
+                      <h1>{w.Name}</h1>
                     </div>
 
                     <div className="associated-word-container">

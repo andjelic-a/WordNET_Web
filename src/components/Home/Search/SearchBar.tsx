@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import "../../../css/HomeComponents.css";
 import {
-  findAssociatedWordsForWord,
   findSimilarWord,
+  getAssociatedWordsById,
 } from "../../../request_handler/ServerRequest";
 import { Word } from "../../../types/Types";
 import { associatedWordsContext, wordContext, wordsContext } from "../HomeContex";
@@ -14,7 +14,7 @@ function SearchBar() {
   const { setAssociatedWords } = useContext(associatedWordsContext);
   const { setWord } = useContext(wordContext);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     // If there are no suggested words we alert user there is no suggested words
     if (suggestedWords.length === 0) {
       return;
@@ -22,8 +22,11 @@ function SearchBar() {
 
     // If there is only one suggested word we take that words by using index
     if (suggestedWords.length === 1) {
-      setAssociatedWords(findAssociatedWordsForWord(suggestedWords[0].id, words));
-      setWord(suggestedWords[0].name);
+
+      const associatedWords = await getAssociatedWordsById(suggestedWords[0].Id);
+      setAssociatedWords(associatedWords);
+      setWord(suggestedWords[0].Name);
+
       return;
     }
 
@@ -32,7 +35,7 @@ function SearchBar() {
       document.querySelector(".input-SearchBar");
 
     const suggestedWord: Word | undefined = suggestedWords.find(
-      (word) => word.name === selectedWord?.value
+      (word) => word.Name === selectedWord?.value
     );
 
     // If word doesn't exist we alert user
@@ -42,8 +45,9 @@ function SearchBar() {
     }
 
     // When word is found we take id and get associated words and refresh WordsPage to show new data
-    setAssociatedWords(findAssociatedWordsForWord(suggestedWord.id, words));
-    setWord(suggestedWord.name);
+    const associatedWords = await getAssociatedWordsById(suggestedWord.Id);
+    setAssociatedWords(associatedWords);
+    setWord(suggestedWord.Name);
   };
 
   const searchForWords = (
@@ -77,7 +81,7 @@ function SearchBar() {
 
     // Find the selected word from the words state (based on id)
     const selectedWord: Word | undefined = suggestedWords.find(
-      (word: Word) => word.id === selectedWordId
+      (word: Word) => word.Id === selectedWordId
     );
     if (!selectedWord) {
       console.error("Cant find selected word");
@@ -93,7 +97,7 @@ function SearchBar() {
     }
 
     // Set input of search bar to word name
-    searchBarInput.value = selectedWord.name;
+    searchBarInput.value = selectedWord.Name;
   };
 
   return (
@@ -119,11 +123,11 @@ function SearchBar() {
         <div className="suggested-words">
           {suggestedWords.map((word) => (
             <p
-              data-id={word.id}
-              key={word.id}
+              data-id={word.Id}
+              key={word.Id}
               onClick={(e) => wordSelected(e)}
             >
-              {word.name}
+              {word.Name}
             </p>
           ))}
         </div>

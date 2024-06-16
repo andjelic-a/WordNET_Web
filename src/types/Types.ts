@@ -57,7 +57,7 @@ export class AssociatedWord {
 }
 
 export class Word {
-    id!: number;
-    name!: string;
+    Id!: number;
+    Name!: string;
     associatedWordDTOs!: AssociatedWord[];
 }
