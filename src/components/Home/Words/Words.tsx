@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState, useEffect, useRef } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { associatedWordsContext, wordContext } from "../HomeContex";
 import "../../../css/WordsComponent.css";
 import { Questionee } from "../../../types/Types";
