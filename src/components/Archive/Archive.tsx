@@ -39,7 +39,7 @@ function Archive() {
                   <div className="words-container">
 
                     <div className="words-header">
-                      <h1>{w.Name}</h1>
+                      <h1>{w.name}</h1>
                     </div>
 
                     <div className="associated-word-container">

@@ -1,17 +1,32 @@
 .words-page {
+    overflow: hidden;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    height: 100svh;
+    min-height: 100vh;
     background: rgb(255, 219, 153) linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
     background-size: cover;
     background-position: center;
     color: black;
     font-family: 'Satoshi-Regular', sans-serif;
-}
-
-.words-container {
+  }
+  
+  .words-container-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: transform .5s ease;
+  }
+  
+  .animate {
+    transition: transform .5s ease;
+    transform: translate(-20%);
+  }
+  
+  .words-container {
     background-color: rgb(101, 93, 77);
     border: 5px solid #977940;
     border-radius: 1rem;
@@ -25,10 +40,10 @@
     border-radius: 0.5rem;
     max-width: 55rem;
     font-size: 2rem;
-    transition: .5s;
-}
-
-.words-header {
+    transform: translateX(0);
+  }
+  
+  .words-header {
     margin-top: 5rem;
     margin-bottom: 2rem;
     display: flex;
@@ -41,9 +56,9 @@
     font-size: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
     color: wheat;
-}
-
-.associated-word-container {
+  }
+  
+  .associated-word-container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -54,40 +69,56 @@
     overflow-y: auto;
     scrollbar-color: wheat #977940;
     color: #4f3f21;
-}
-
-.associated-word {
+  }
+  
+  .associated-word {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: 80%;
     margin: 0.2rem;
     position: relative;
-}
-
-.associated-word p {
+  }
+  
+  .associated-word p {
     display: flex;
     justify-content: center;
     background-color: wheat;
     border-radius: 0.5rem;
     height: 1.5em;
     width: 100%;
-}
-
-.associated-word-circle {
+  }
+  
+  .associated-word.active {
+    color: #977940;
+  }
+  
+  .associated-word-circle {
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     border: 1px solid black;
-    background-color: #ECD7B5;
+    background-color: #ecd7b5;
     width: 1.5em;
     height: 1.5em;
     transform: translateX(-1rem);
-}
-
-.words-about img{
+  }
+  
+  .new-words-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: -1;
+    background-color: rgb(101, 93, 77);
+    border: 5px solid #977940;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 7.5px 15px 15px;
     width: 35rem;
     height: 40rem;
-}
+    font-size: 2rem;
+    transform: translate(170%);
+  }

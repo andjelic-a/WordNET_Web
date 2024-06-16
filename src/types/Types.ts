@@ -58,6 +58,6 @@ export class AssociatedWord {
 
 export class Word {
     Id!: number;
-    Name!: string;
+    name!: string;
     associatedWordDTOs!: AssociatedWord[];
 }

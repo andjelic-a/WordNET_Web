@@ -105,38 +105,41 @@ function Words() {
           </div>
         </div>
 
-        {statistics && (
+        {showNewContainer && (
+          <div className="new-words-container">
+                  {statistics && (
           <PieChart
             series={[
               {
                 data: [
-                  { color: 'blue', value: statistics.gender.manPerc, label: 'Man' },
-                  { color: 'pink', value: statistics.gender.womanPerc, label: 'Woman' }
+                  { color: '#977940',  value: statistics.gender.manPerc, label: 'Мушко' },
+                  { color: 'wheat', value: statistics.gender.womanPerc, label: 'Женско' }
                 ],
                 arcLabel: (item) => `${item.value}%`,
-                arcLabelMinAngle: 0,
+                arcLabelMinAngle: 1,
                 highlightScope: { faded: 'global', highlighted: 'item' },
                 faded: { innerRadius: 10, additionalRadius: -10, color: 'gray' },
               },
             ]}
-            width={400}
+            width={220}
             height={200}
           />
         )}
-
+        
         {statistics && (
           <BarChart
-            series={[
-              { data: [statistics.age.young, statistics.age.middle, statistics.age.old] },
-            ]}
-            height={290}
-            xAxis={[{ data: ['0-18', '18-25', '25-♾️'], scaleType: 'band' }]}
-            margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
-          />
+          series={[
+            {
+              data: [statistics.age.young, statistics.age.middle, statistics.age.old],
+              color: 'wheat'
+            },
+          ]}
+          height={200}
+          xAxis={[{ data: ['0-18', '18-25', '25+'], scaleType: 'band' }]}
+          margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
+        />
+        
         )}
-
-        {showNewContainer && (
-          <div className="new-words-container">
           </div>
         )}
       </div>
