@@ -30,7 +30,7 @@ function Archive() {
         <Header />
       </div>
 
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div className="grid-container"></div>}>
         <Await resolve={data.words}>
           {(words: Word[]) => (
             <div className="grid-container">
