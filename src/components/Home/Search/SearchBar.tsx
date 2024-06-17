@@ -20,13 +20,20 @@ function SearchBar() {
       return;
     }
 
+    // Function to fetch and set associated words
+    const fetchAndSetAssociatedWords = async (word: Word) => {
+      try {
+        const associatedWords = await getAssociatedWordsById(word.Id);
+        setWord(word.Name);
+        setAssociatedWords(associatedWords);
+      } catch (error) {
+        console.error("Error fetching associated words:", error);
+      }
+    };
+
     // If there is only one suggested word we take that words by using index
     if (suggestedWords.length === 1) {
-
-      const associatedWords = await getAssociatedWordsById(suggestedWords[0].Id);
-      setAssociatedWords(associatedWords);
-      setWord(suggestedWords[0].Name);
-
+      await fetchAndSetAssociatedWords(suggestedWords[0]);
       return;
     }
 
@@ -45,9 +52,7 @@ function SearchBar() {
     }
 
     // When word is found we take id and get associated words and refresh WordsPage to show new data
-    const associatedWords = await getAssociatedWordsById(suggestedWord.Id);
-    setAssociatedWords(associatedWords);
-    setWord(suggestedWord.Name);
+    await fetchAndSetAssociatedWords(suggestedWord);
   };
 
   const searchForWords = (
