@@ -23,7 +23,7 @@
   
   .animate {
     transition: transform .5s ease;
-    transform: translate(-20%);
+    transform: translate(-35rem);
   }
   
   .words-container {
@@ -40,7 +40,6 @@
     border-radius: 0.5rem;
     max-width: 55rem;
     font-size: 2rem;
-    transform: translateX(0);
   }
   
   .words-header {
@@ -120,5 +119,5 @@
     width: 35rem;
     height: 40rem;
     font-size: 2rem;
-    transform: translate(170%);
+    transform: translate(70rem);
   }
