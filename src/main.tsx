@@ -7,6 +7,7 @@ import Home from './components/Home/Home.tsx';
 import Archive from './components/Archive/Archive.tsx';
 import homeLoader from './components/Home/HomeLoader.ts';
 import archiveLoader from './components/Archive/ArchiveLoader.ts';
+import Words from './components/Home/Words/Words.tsx';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,12 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: homeLoader,
+        children: [
+          {
+            path: "/words",
+            element: <Words />
+          }
+        ]
       },
       {
         path: "/archive",

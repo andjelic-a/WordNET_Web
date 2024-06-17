@@ -12,6 +12,10 @@ function Words() {
   const [showNewContainer, setShowNewContainer] = useState(false);
   const wordRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  const scrollUp = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   const [statistics, setStatistics] = useState<{
     gender: {
       manPerc: number,
@@ -29,8 +33,6 @@ function Words() {
     setActiveWord(index);
     setAnimate(true);
     setShowNewContainer(true);
-
-    console.log(statistics);
 
     const manPerc = parseFloat(((statistics.filter(q => q.isMan == true).length / statistics.length) * 100).toFixed(2));
     const womanPerc = 100 - manPerc;
@@ -128,7 +130,6 @@ function Words() {
                 xAxis={[{ data: ['0-18', '18-25', '25+'], scaleType: 'band' }]}
                 margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
               />
-
             )}
           </div>
         )}

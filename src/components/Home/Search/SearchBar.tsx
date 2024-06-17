@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../../css/HomeComponents.css";
 import {
   findSimilarWord,
@@ -11,33 +11,30 @@ function SearchBar() {
   const [suggestedWords, setSuggestedWords] = useState<Word[]>([]);
 
   const { words } = useContext(wordsContext);
-  const { setAssociatedWords } = useContext(associatedWordsContext);
+  const { associatedWords, setAssociatedWords } = useContext(associatedWordsContext);
   const { setWord } = useContext(wordContext);
 
+  const fetchAndSetAssociatedWords = async (word: Word) => {
+    try {
+      const associatedWords = await getAssociatedWordsById(word.Id);
+      setWord(word.Name);
+      setAssociatedWords(associatedWords);
+    } catch (error) {
+      console.error("Error fetching associated words:", error);
+    }
+  };
+
   const handleClick = async () => {
-    // If there are no suggested words we alert user there is no suggested words
     if (suggestedWords.length === 0) {
+      alert("No suggested words available");
       return;
     }
 
-    // Function to fetch and set associated words
-    const fetchAndSetAssociatedWords = async (word: Word) => {
-      try {
-        const associatedWords = await getAssociatedWordsById(word.Id);
-        setWord(word.Name);
-        setAssociatedWords(associatedWords);
-      } catch (error) {
-        console.error("Error fetching associated words:", error);
-      }
-    };
-
-    // If there is only one suggested word we take that words by using index
     if (suggestedWords.length === 1) {
       await fetchAndSetAssociatedWords(suggestedWords[0]);
       return;
     }
 
-    // If there are more than one suggested word we take user input and try to find suggested word by name
     const selectedWord: HTMLInputElement | null =
       document.querySelector(".input-SearchBar");
 
@@ -45,13 +42,11 @@ function SearchBar() {
       (word) => word.Name === selectedWord?.value
     );
 
-    // If word doesn't exist we alert user
     if (!suggestedWord) {
       alert("Entered word doesn't exist");
       return;
     }
 
-    // When word is found we take id and get associated words and refresh WordsPage to show new data
     await fetchAndSetAssociatedWords(suggestedWord);
   };
 
@@ -105,6 +100,12 @@ function SearchBar() {
     searchBarInput.value = selectedWord.Name;
   };
 
+  useEffect(() => {
+    if (associatedWords.length > 0) {
+      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+    }
+  }, [associatedWords]);
+
   return (
     <>
       <div className="search-bar">
@@ -114,15 +115,13 @@ function SearchBar() {
           onKeyUp={(e) => searchForWords(e)}
           placeholder="горе, кућа, непријатељ..."
         />
-        <a href="#Words">
-          <button onClick={handleClick} type="button">
-            <img
-              src="../../../../img/search.png"
-              alt="Search icon"
-              draggable="false"
-            />
-          </button>
-        </a>
+        <button onClick={handleClick} type="button">
+          <img
+            src="../../../../img/search.png"
+            alt="Search icon"
+            draggable="false"
+          />
+        </button>
       </div>
       <div className="suggested-words-relative">
         <div className="suggested-words">
